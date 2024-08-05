@@ -1,4 +1,7 @@
 import random
+import logging
+
+logger = logging.getLogger(__name__)
 
 class ContentGenerator:
     def __init__(self):
@@ -14,8 +17,11 @@ class ContentGenerator:
             "Acupuncture helps manage various chronic pain conditions.",
             "Acupuncture is effective for stress reduction and relaxation."
         ]
+        logger.info("ContentGenerator가 초기화되었습니다.")
 
     def generate_content(self):
         topic = random.choice(self.topics)
         fact = random.choice(self.facts)
-        return f"Today's Acupuncture Topic: {topic}\n\nDid you know? {fact}"
+        content = f"Today's Acupuncture Topic: {topic}\n\nDid you know? {fact}"
+        logger.info(f"새로운 콘텐츠가 생성되었습니다: {content}")
+        return content
